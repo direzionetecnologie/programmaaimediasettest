@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Presentazione Programma Aziendale di Sperimentazione GenAI</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --primary: #00ADEF;
+      --dark: #1d1d1b;
+      --accent: #262626;
+      --light: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+
+    body {
+      background: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--accent);
+      color: var(--light);
+      padding: 2rem 1rem 2.5rem;
+      text-align: center;
+      border-bottom: 3px solid var(--primary);
+    }
+
+    .brand {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .brand .highlight {
+      color: var(--primary);
+    }
+
+    header h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-top: .6rem;
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      margin-top: .4rem;
+      font-size: 1.125rem;
+    }
+
+    header p.location {
+      color: var(--primary);
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 3px solid var(--primary);
+      background: var(--accent);
+    }
+
+    .tab {
+      flex: 1;
+      padding: 1rem;
+      text-align: center;
+      cursor: pointer;
+      color: var(--light);
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: var(--accent);
+      border: none;
+      border-right: 2px solid var(--light);
+    }
+
+    .tab:last-child {
+      border-right: none;
+    }
+
+    .tab.active {
+      background: var(--primary);
+      color: var(--dark);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .agenda-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.75rem;
+      background: var(--accent);
+      padding: 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
+      transition: transform .3s ease, box-shadow .3s ease;
+      cursor: pointer;
+    }
+
+    .agenda-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, .6);
+    }
+
+    .icon {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .agenda-content {
+      flex: 1;
+    }
+
+    .agenda-content h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: .25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .agenda-content .time {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .agenda-content p {
+      margin: 0.2rem 0;
+    }
+
+    .agenda-detail {
+      display: none;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .agenda-item.open .agenda-detail {
+      display: block;
+    }
+
+    .toggle {
+      margin-left: auto;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+
+    .cart-link {
+      color: var(--primary);
+      text-decoration: none;
+      margin-left: auto;
+      font-size: 1.4rem;
+    }
+
+    .agenda-logo img {
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+
+    @media (max-width: 640px) {
+      .agenda-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .agenda-content {
+        margin-top: 1rem;
+      }
+
+      .agenda-logo {
+        margin-top: 1rem;
+      }
+
+      .agenda-content h3 {
+        justify-content: center;
+      }
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: .9rem;
+      color: #999;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .download-link {
+      display: inline-block;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+    }
+
+    .download-link:hover {
+      text-decoration: underline;
+    }
+
+    .reading-intro {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 1.5rem 0;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 class="brand">Med<span class="highlight">i</span><span class="highlight">a</span>set</h1>
+  <h2>Presentazione Programma Aziendale di Sperimentazione GenAI</h2>
+  <p class="location">Cologno Monzese, 18 Settembre 2025</p>
+  <p>Sala Camana, 9:45 - 13:00</p>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="agenda">Agenda</button>
+  <button class="tab" data-tab="guide">Guide all'uso dell'IA</button>
+  <button class="tab" data-tab="consigli">Consigli di lettura</button>
+</nav>
+
+<main>
+  <section id="agenda" class="tab-content active">
+    <section class="agenda-item">
+      <div class="icon"><i class="fas fa-handshake"></i></div>
+      <div class="agenda-content">
+        <h3>Welcome</h3>
+        <p class="time">15 min</p>
+        <p class="agenda-detail">Introduzione e saluti iniziali.</p>
+      </div>
+      <div class="agenda-logo">
+        <img src="https://aiworkshopmediaset.s3.amazonaws.com/mediaset_logo.jpeg" alt="Logo">
+      </div>
+    </section>
+
+    <section class="agenda-item">
+      <div class="icon"><i class="fas fa-rocket"></i></div>
+      <div class="agenda-content">
+        <h3>AI Generativa, dalle chat agli agenti</h3>
+        <p class="time">40 min</p>
+        <p><strong>Speaker:</strong> Antonio Faraldi</p>
+        <p class="agenda-detail">Boston Consulting Group ci guiderà in un’introduzione sull’evoluzione dell’intelligenza artificiale generativa: si partirà dalle chatbot testuali per arrivare ai nuovi “agenti AI”, sistemi capaci di pianificare, eseguire task complessi e interagire in autonomia con ambienti digitali. Verranno mostrati casi d’uso concreti e scenari applicativi rilevanti per i media e le aziende.</p>
+      </div>
+      <div class="agenda-logo">
+        <img src="https://aiworkshopmediaset.s3.amazonaws.com/BCG_Corporate_Logo.png" alt="BCG">
+      </div>
+      <div class="toggle"><i class="fas fa-circle-plus"></i></div>
+    </section>
+
+    <section class="agenda-item">
+      <div class="icon"><i class="fas fa-scale-balanced"></i></div>
+      <div class="agenda-content">
+        <h3>AI Act e primi elementi di “guard-railing” per l’Azienda</h3>
+        <p class="time">30 min</p>
+        <p><strong>Speaker:</strong> PWC</p>
+        <p class="agenda-detail">PWC porterà evidenza sugli effetti operativi derivanti dal nuovo regolamento europeo sull’intelligenza artificiale (AI Act), con focus sugli impatti organizzativi e sulle misure iniziali che le aziende, in particolare quelle del settore media e broadcasting, possono adottare per garantire un uso responsabile e conforme delle tecnologie AI.</p>
+      </div>
+      <div class="agenda-logo">
+        <img src="https://aiworkshopmediaset.s3.amazonaws.com/pwc.png" alt="PwC">
+      </div>
+      <div class="toggle"><i class="fas fa-circle-plus"></i></div>
+    </section>
+
+    <section class="agenda-item">
+      <div class="icon"><i class="fas fa-mug-saucer"></i></div>
+      <div class="agenda-content">
+        <h3>Coffee Break</h3>
+        <p class="time">15 min</p>
+        <p class="agenda-detail">Pausa con caffè e networking.</p>
+      </div>
+    </section>
+
+    <section class="agenda-item">
+      <div class="icon"><i class="fas fa-lightbulb"></i></div>
+      <div class="agenda-content">
+        <h3>Programma <b>MedIAset</b></h3>
+        <p class="time">30 min</p>
+        <p><strong>Speaker:</strong> Marcello Galli, Luca Poloni</p>
+        <p class="agenda-detail">Marcello e Luca descriveranno il programma aziendale di esplorazione e sperimentazione dell'intelligenza artificiale generativa. In particolare si soffermeranno sui tre ambiti principali del programma: identificazione dei principi e delle linee guida aziendali di utilizzo della GEN-AI, sperimentazione di strumenti a supporto della produttività individuale, Identificazione e implementazioni di use case verticali per la nostra industry</p>
+      </div>
+      <div class="agenda-logo">
+        <img src="https://aiworkshopmediaset.s3.amazonaws.com/mediaset_logo.jpeg" alt="MedIAset">
+      </div>
+      <div class="toggle"><i class="fas fa-circle-plus"></i></div>
+    </section>
+
+    <section class="agenda-item">
+      <div class="icon"><i class="fas fa-wand-magic"></i></div>
+      <div class="agenda-content">
+        <h3>Prompting Tips & Tricks</h3>
+        <p class="time">50 min</p>
+        <p><strong>Speaker:</strong> Team BCG-Reply</p>
+        <p class="agenda-detail">Una sessione pratica guidata per sperimentare dal vivo l’utilizzo dei modelli generativi. I partecipanti potranno provare in prima persona tecniche di prompting su diversi scenari (scrittura, sintesi, ricerca, automazione), confrontare approcci, ricevere feedback immediato e scoprire come migliorare l’efficacia delle richieste ai modelli. L’obiettivo è rendere l’AI uno strumento quotidiano, concreto e potenziato dalla pratica.</p>
+      </div>
+      <div class="agenda-logo">
+        <img src="https://aiworkshopmediaset.s3.amazonaws.com/bcgreply.png" alt="BCG Reply">
+      </div>
+      <div class="toggle"><i class="fas fa-circle-plus"></i></div>
+    </section>
+
+    <section class="agenda-item">
+      <div class="icon"><i class="fas fa-flag-checkered"></i></div>
+      <div class="agenda-content">
+        <h3>Fine lavori</h3>
+        <p class="time">10 min</p>
+        <p><strong>Speaker:</strong> Marcello Galli, Luca Poloni</p>
+        <p class="agenda-detail">Conclusione della giornata e prossimi passi.</p>
+      </div>
+      <div class="agenda-logo">
+        <img src="https://aiworkshopmediaset.s3.amazonaws.com/mediaset_logo.jpeg" alt="Fine lavori">
+      </div>
+    </section>
+  </section>
+
+  <section id="guide" class="tab-content">
+    <section class="agenda-item">
+      <div class="icon"><i class="fas fa-book"></i></div>
+      <div class="agenda-content">
+        <h3>Guida al primo accesso a ChatGPT - Pc e mobile</h3>
+        <p><a class="download-link" href="https://aiworkshopmediaset.s3.amazonaws.com/guida primo accesso ChatGPT - PC e Mobile.pdf" download>Scarica PDF</a></p>
+      </div>
+    </section>
+    <section class="agenda-item">
+      <div class="icon"><i class="fas fa-book"></i></div>
+      <div class="agenda-content">
+        <h3>Guida all'uso di ChatGPT</h3>
+        <p><a class="download-link" href="https://aiworkshopmediaset.s3.amazonaws.com/Guida utilizzo principali funzionalità ChatGPT 31.7.pdf" download>Scarica PDF</a></p>
+      </div>
+    </section>
+    <section class="agenda-item">
+      <div class="icon"><i class="fas fa-book"></i></div>
+      <div class="agenda-content">
+        <h3>Guida al Prompting efficace</h3>
+        <p><a class="download-link" href="https://aiworkshopmediaset.s3.amazonaws.com/esploriamo_il_mondo_dei_prompt.pdf" download>Scarica PDF</a></p>
+      </div>
+    </section>
+  </section>
+
+  <section id="consigli" class="tab-content">
+    <!-- 3... +1 consigli di lettura per questa pausa estiva -->
+    <p class="reading-intro">3... +1 consigli di lettura per questa pausa estiva</p>
+    <section class="agenda-item">
+      <div class="agenda-content">
+        <h3>Geopolitica dell'intelligenza artificiale</h3>
+        <p><em>Alessandro Aresu</em></p>
+      </div>
+      <a class="cart-link icon" href="https://www.amazon.it/Geopolitica-dellintelligenza-artificiale-Alessandro-Aresu-ebook/dp/B0DHV5T3T9/ref=sr_1_9?dib=eyJ2IjoiMSJ9.frXWBynOtlvhC6YHnyOediY9E-kVK1rb5oE6HJ-4TTD_AWyhdfC9Vejy3dOoo7BX7Dgxykbu_u7CAmzRuEtUR17WS1aeb155QcoTZ0ePligN8yJTQzrLlsTNtXpR4CSMY-EQZedamsaa1_fUL_FtQtFgouYLBm0FYvcUPsCze0YuZt70Y_9aYoF3yzssK6tYwO9Dw9EVUEOwZoNXAc7VBAbAnbIPk-XTmsdRxGiJC1w.jTJCjNLybGldIZBT7TzLsgoTYkrcliUcN2A9KeAw79A&dib_tag=se&qid=1753979940&s=books&sr=1-9" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
+    </section>
+    <section class="agenda-item">
+      <div class="agenda-content">
+        <h3>Umano, poco umano. Esercizi spirituali contro l'intelligenza artificiale</h3>
+        <p><em>Mauro Crippa, Giuseppe Girgenti</em></p>
+      </div>
+      <a class="cart-link icon" href="https://www.amazon.it/Umano-poco-umano-Giuseppe-Girgenti/dp/8856694174/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dib=eyJ2IjoiMSJ9.nS-8wrKL1JFj4-D099eqEg.K1Uc6i41Lxy5V9GyInjWrtYG0ICBX-as4jTSOkzC3nk&dib_tag=se&keywords=crippa+intelligenza+artificiale&qid=1753980666&s=books&sr=1-1" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
+  </section>
+   <section class="agenda-item">
+     <div class="agenda-content">
+      <h3>La scorciatoia. Come le macchine sono diventate intelligenti senza pensare in modo umano</h3>
+      <p><em>Nello Cristianini</em></p>
+     </div>
+    <a class="cart-link icon" href="https://www.amazon.it/SCORCIATOIA-macchine-diventate-intelligenti-pensare/dp/8815299831/ref=sr_1_1?adgrpid=151677336674&dib=eyJ2IjoiMSJ9.2hXHE7_G1HtUGHt9KCwG1pIYzECDcOUaAh8bqWJg_PSzOwDYy9HPt8YmA6iXtEkRQcWaMGUFzJciBxCg0dHwkMk9x3bMTb1OAypqUz6Idtwys5yCjrWQhmagzsE_w5wmbe9pknRDcSsUlOY44ZCbNA.uBdNNFGdW3MFIwV4axrDyAc8Pno_AqTP1pr5VnZfceo&dib_tag=se&hvadid=657061025997&hvdev=c&hvexpln=0&hvlocphy=9198639&hvnetw=g&hvocijid=17873138549297888273--&hvqmt=e&hvrand=17873138549297888273&hvtargid=kwd-2061178548210&hydadcr=28399_2397239&keywords=cristianini+la+scorciatoia&mcid=05c2fd31c8ad3daab4a9b381d2113ec5&qid=1753981849&sr=8-1" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
+  </section>
+    <section class="agenda-item">
+      <div class="agenda-content">
+        <h3>L'onda che verrà</h3>
+        <p><em>Mustafa Suleyman, Michael Bhaskar</em></p>
+        <p class="agenda-detail">Uno sguardo a come l'IA e le nuove tecnologie stanno trasformando il futuro.</p>
+      </div>
+      <a class="cart-link icon" href="https://www.amazon.it/Londa-che-verr%C3%A0-Mustafa-Suleyman-ebook/dp/B0CXCYJQRL/ref=sr_1_1?adgrpid=161911767569&dib=eyJ2IjoiMSJ9.UwKU8fdr6yhNqRTfhKHmo3IAvaqepXx96n9tb8Vul9ciiITffFxmNpV7bX9yDCRzF6XXHoim0EwcT6JBq_rGYW1chLhKubSy0-DzBIla0kxiRZCShBRQECC3zxXHrdvTeBiVRl7zA-AYDy7BhP6LOg.O8qmzNH-3FVRldewOpkhwR5HwAL3FRbwgTNWMtI64lU&dib_tag=se&hvadid=710724147533&hvdev=c&hvexpln=0&hvlocphy=9198639&hvnetw=g&hvocijid=10620017132028927798--&hvqmt=e&hvrand=10620017132028927798&hvtargid=kwd-2301754090518&hydadcr=28430_2518840&keywords=l%27onda+che+verr%C3%A0&mcid=ce17461b3b6630bd95c150e3cadb90fc&qid=1753978372&sr=8-1" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
+    </section>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Mediaset – Direzione Tecnologie<br>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.tab-content').forEach(function(tc){ tc.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('#agenda .agenda-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      item.classList.toggle('open');
+      var icon = item.querySelector('.toggle i');
+      if (icon) {
+        if (item.classList.contains('open')) {
+          icon.classList.remove('fa-circle-plus');
+          icon.classList.add('fa-circle-minus');
+        } else {
+          icon.classList.remove('fa-circle-minus');
+          icon.classList.add('fa-circle-plus');
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
