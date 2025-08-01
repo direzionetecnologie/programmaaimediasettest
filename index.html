@@ -286,17 +286,13 @@
       text-align: center;
     }
 
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-
     .video-box {
       position: relative;
-      padding-top: 56.25%;
+      width: 320px;
+      height: 180px;
       border-radius: 12px;
       overflow: hidden;
+      flex-shrink: 0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
 
@@ -504,23 +500,67 @@
     </section>
 
     <section id="video" class="inner-tab-content">
-      <div class="video-grid">
+      <p class="reading-intro">6 consigli di visione</p>
+
+      <section class="agenda-item">
         <div class="video-box">
           <iframe src="https://www.youtube.com/embed/KKNCiRWd_j0" title="Video 1" allowfullscreen></iframe>
         </div>
+        <div class="agenda-content">
+          <h3>Video 1</h3>
+          <p class="agenda-detail"><strong>Perché vederlo:</strong> breve introduzione al potenziale dell'IA generativa.</p>
+        </div>
+      </section>
+
+      <section class="agenda-item">
         <div class="video-box">
           <iframe src="https://www.youtube.com/embed/jt3Ul3rPXaE" title="Video 2" allowfullscreen></iframe>
         </div>
+        <div class="agenda-content">
+          <h3>Video 2</h3>
+          <p class="agenda-detail"><strong>Perché vederlo:</strong> esempi pratici di applicazioni aziendali.</p>
+        </div>
+      </section>
+
+      <section class="agenda-item">
         <div class="video-box">
           <iframe src="https://www.youtube.com/embed/qyH3NxFz3Aw" title="Video 3" allowfullscreen></iframe>
         </div>
+        <div class="agenda-content">
+          <h3>Video 3</h3>
+          <p class="agenda-detail"><strong>Perché vederlo:</strong> approfondimento sui prompt efficaci.</p>
+        </div>
+      </section>
+
+      <section class="agenda-item">
         <div class="video-box">
           <iframe src="https://www.youtube.com/embed/CRraHg4Ks_g" title="Video 4" allowfullscreen></iframe>
         </div>
-        <div class="video-box">
-          <iframe src="https://www.youtube.com/embed/id4YRO7G0wE?si=Fm_dPa8zk-botS-p" title="Video 4" allowfullscreen></iframe>
+        <div class="agenda-content">
+          <h3>Video 4</h3>
+          <p class="agenda-detail"><strong>Perché vederlo:</strong> consigli per la sicurezza nell'uso dell'IA.</p>
         </div>
-      </div>
+      </section>
+
+      <section class="agenda-item">
+        <div class="video-box">
+          <iframe src="https://www.youtube.com/embed/id4YRO7G0wE?si=Fm_dPa8zk-botS-p" title="Video 5" allowfullscreen></iframe>
+        </div>
+        <div class="agenda-content">
+          <h3>Video 5</h3>
+          <p class="agenda-detail"><strong>Perché vederlo:</strong> testimonianza di un esperto del settore.</p>
+        </div>
+      </section>
+
+      <section class="agenda-item">
+        <div class="video-box">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video 6" allowfullscreen></iframe>
+        </div>
+        <div class="agenda-content">
+          <h3>Video 6</h3>
+          <p class="agenda-detail"><strong>Perché vederlo:</strong> visione sul futuro dell'intelligenza artificiale.</p>
+        </div>
+      </section>
     </section>
 
     <section id="podcast" class="inner-tab-content">
