@@ -239,6 +239,58 @@
       margin: 1.5rem 0;
       color: var(--primary);
     }
+
+    .inner-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .inner-tab {
+      padding: 0.5rem 1.2rem;
+      border-radius: 999px;
+      border: 2px solid var(--primary);
+      background: none;
+      color: var(--light);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .inner-tab.active {
+      background: var(--primary);
+      color: var(--dark);
+    }
+
+    .inner-tab-content {
+      display: none;
+    }
+
+    .inner-tab-content.active {
+      display: block;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .video-box {
+      position: relative;
+      padding-top: 56.25%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .video-box iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
   </style>
 </head>
 <body>
@@ -253,7 +305,7 @@
 <nav class="tabs">
   <button class="tab active" data-tab="agenda">Agenda</button>
   <button class="tab" data-tab="guide">Guide all'uso dell'IA</button>
-  <button class="tab" data-tab="consigli">Consigli di lettura</button>
+  <button class="tab" data-tab="consigli">Vuoi approfondire?</button>
 </nav>
 
 <main>
@@ -374,36 +426,56 @@
   </section>
 
   <section id="consigli" class="tab-content">
-    <!-- 3... +1 consigli di lettura per questa pausa estiva -->
-    <p class="reading-intro">3... +1 consigli di lettura per questa pausa estiva</p>
-    <section class="agenda-item">
-      <div class="agenda-content">
-        <h3>Geopolitica dell'intelligenza artificiale</h3>
-        <p><em>Alessandro Aresu</em></p>
-      </div>
-      <a class="cart-link icon" href="https://www.amazon.it/Geopolitica-dellintelligenza-artificiale-Alessandro-Aresu-ebook/dp/B0DHV5T3T9/ref=sr_1_9?dib=eyJ2IjoiMSJ9.frXWBynOtlvhC6YHnyOediY9E-kVK1rb5oE6HJ-4TTD_AWyhdfC9Vejy3dOoo7BX7Dgxykbu_u7CAmzRuEtUR17WS1aeb155QcoTZ0ePligN8yJTQzrLlsTNtXpR4CSMY-EQZedamsaa1_fUL_FtQtFgouYLBm0FYvcUPsCze0YuZt70Y_9aYoF3yzssK6tYwO9Dw9EVUEOwZoNXAc7VBAbAnbIPk-XTmsdRxGiJC1w.jTJCjNLybGldIZBT7TzLsgoTYkrcliUcN2A9KeAw79A&dib_tag=se&qid=1753979940&s=books&sr=1-9" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
+    <nav class="inner-tabs">
+      <button class="inner-tab active" data-tab="libri">Libri</button>
+      <button class="inner-tab" data-tab="video">Video</button>
+      <button class="inner-tab" data-tab="podcast">Podcast</button>
+    </nav>
+
+    <section id="libri" class="inner-tab-content active">
+      <p class="reading-intro">3... +1 consigli di lettura per questa pausa estiva</p>
+      <section class="agenda-item">
+        <div class="agenda-content">
+          <h3>Geopolitica dell'intelligenza artificiale</h3>
+          <p><em>Alessandro Aresu</em></p>
+        </div>
+        <a class="cart-link icon" href="https://www.amazon.it/Geopolitica-dellintelligenza-artificiale-Alessandro-Aresu-ebook/dp/B0DHV5T3T9/ref=sr_1_9?dib=eyJ2IjoiMSJ9.frXWBynOtlvhC6YHnyOediY9E-kVK1rb5oE6HJ-4TTD_AWyhdfC9Vejy3dOoo7BX7Dgxykbu_u7CAmzRuEtUR17WS1aeb155QcoTZ0ePligN8yJTQzrLlsTNtXpR4CSMY-EQZedamsaa1_fUL_FtQtFgouYLBm0FYvcUPsCze0YuZt70Y_9aYoF3yzssK6tYwO9Dw9EVUEOwZoNXAc7VBAbAnbIPk-XTmsdRxGiJC1w.jTJCjNLybGldIZBT7TzLsgoTYkrcliUcN2A9KeAw79A&dib_tag=se&qid=1753979940&s=books&sr=1-9" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
+      </section>
+      <section class="agenda-item">
+        <div class="agenda-content">
+          <h3>Umano, poco umano. Esercizi spirituali contro l'intelligenza artificiale</h3>
+          <p><em>Mauro Crippa, Giuseppe Girgenti</em></p>
+        </div>
+        <a class="cart-link icon" href="https://www.amazon.it/Umano-poco-umano-Giuseppe-Girgenti/dp/8856694174/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dib=eyJ2IjoiMSJ9.nS-8wrKL1JFj4-D099eqEg.K1Uc6i41Lxy5V9GyInjWrtYG0ICBX-as4jTSOkzC3nk&dib_tag=se&keywords=crippa+intelligenza+artificiale&qid=1753980666&s=books&sr=1-1" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
+      </section>
+      <section class="agenda-item">
+        <div class="agenda-content">
+          <h3>La scorciatoia. Come le macchine sono diventate intelligenti senza pensare in modo umano</h3>
+          <p><em>Nello Cristianini</em></p>
+        </div>
+        <a class="cart-link icon" href="https://www.amazon.it/SCORCIATOIA-macchine-diventate-intelligenti-pensare/dp/8815299831/ref=sr_1_1?adgrpid=151677336674&dib=eyJ2IjoiMSJ9.2hXHE7_G1HtUGHt9KCwG1pIYzECDcOUaAh8bqWJg_PSzOwDYy9HPt8YmA6iXtEkRQcWaMGUFzJciBxCg0dHwkMk9x3bMTb1OAypqUz6Idtwys5yCjrWQhmagzsE_w5wmbe9pknRDcSsUlOY44ZCbNA.uBdNNFGdW3MFIwV4axrDyAc8Pno_AqTP1pr5VnZfceo&dib_tag=se&hvadid=657061025997&hvdev=c&hvexpln=0&hvlocphy=9198639&hvnetw=g&hvocijid=17873138549297888273--&hvqmt=e&hvrand=17873138549297888273&hvtargid=kwd-2061178548210&hydadcr=28399_2397239&keywords=cristianini+la+scorciatoia&mcid=05c2fd31c8ad3daab4a9b381d2113ec5&qid=1753981849&sr=8-1" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
+      </section>
+      <section class="agenda-item">
+        <div class="agenda-content">
+          <h3>L'onda che verrà</h3>
+          <p><em>Mustafa Suleyman, Michael Bhaskar</em></p>
+          <p class="agenda-detail">Uno sguardo a come l'IA e le nuove tecnologie stanno trasformando il futuro.</p>
+        </div>
+        <a class="cart-link icon" href="https://www.amazon.it/Londa-che-verr%C3%A0-Mustafa-Suleyman-ebook/dp/B0CXCYJQRL/ref=sr_1_1?adgrpid=161911767569&dib=eyJ2IjoiMSJ9.UwKU8fdr6yhNqRTfhKHmo3IAvaqepXx96n9tb8Vul9ciiITffFxmNpV7bX9yDCRzF6XXHoim0EwcT6JBq_rGYW1chLhKubSy0-DzBIla0kxiRZCShBRQECC3zxXHrdvTeBiVRl7zA-AYDy7BhP6LOg.O8qmzNH-3FVRldewOpkhwR5HwAL3FRbwgTNWMtI64lU&dib_tag=se&hvadid=710724147533&hvdev=c&hvexpln=0&hvlocphy=9198639&hvnetw=g&hvocijid=10620017132028927798--&hvqmt=e&hvrand=10620017132028927798&hvtargid=kwd-2301754090518&hydadcr=28430_2518840&keywords=l%27onda+che+verr%C3%A0&mcid=ce17461b3b6630bd95c150e3cadb90fc&qid=1753978372&sr=8-1" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
+      </section>
     </section>
-    <section class="agenda-item">
-      <div class="agenda-content">
-        <h3>Umano, poco umano. Esercizi spirituali contro l'intelligenza artificiale</h3>
-        <p><em>Mauro Crippa, Giuseppe Girgenti</em></p>
+
+    <section id="video" class="inner-tab-content">
+      <div class="video-grid">
+        <div class="video-box"><iframe src="https://www.youtube.com/embed/XdQxbXAkQHc" allowfullscreen loading="lazy"></iframe></div>
+        <div class="video-box"><iframe src="https://www.youtube.com/embed/DD4F5it7a5M" allowfullscreen loading="lazy"></iframe></div>
+        <div class="video-box"><iframe src="https://www.youtube.com/embed/IZBT57oLKas" allowfullscreen loading="lazy"></iframe></div>
+        <div class="video-box"><iframe src="https://www.youtube.com/embed/X8nNOtw4tzA" allowfullscreen loading="lazy"></iframe></div>
       </div>
-      <a class="cart-link icon" href="https://www.amazon.it/Umano-poco-umano-Giuseppe-Girgenti/dp/8856694174/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dib=eyJ2IjoiMSJ9.nS-8wrKL1JFj4-D099eqEg.K1Uc6i41Lxy5V9GyInjWrtYG0ICBX-as4jTSOkzC3nk&dib_tag=se&keywords=crippa+intelligenza+artificiale&qid=1753980666&s=books&sr=1-1" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
-  </section>
-   <section class="agenda-item">
-     <div class="agenda-content">
-      <h3>La scorciatoia. Come le macchine sono diventate intelligenti senza pensare in modo umano</h3>
-      <p><em>Nello Cristianini</em></p>
-     </div>
-    <a class="cart-link icon" href="https://www.amazon.it/SCORCIATOIA-macchine-diventate-intelligenti-pensare/dp/8815299831/ref=sr_1_1?adgrpid=151677336674&dib=eyJ2IjoiMSJ9.2hXHE7_G1HtUGHt9KCwG1pIYzECDcOUaAh8bqWJg_PSzOwDYy9HPt8YmA6iXtEkRQcWaMGUFzJciBxCg0dHwkMk9x3bMTb1OAypqUz6Idtwys5yCjrWQhmagzsE_w5wmbe9pknRDcSsUlOY44ZCbNA.uBdNNFGdW3MFIwV4axrDyAc8Pno_AqTP1pr5VnZfceo&dib_tag=se&hvadid=657061025997&hvdev=c&hvexpln=0&hvlocphy=9198639&hvnetw=g&hvocijid=17873138549297888273--&hvqmt=e&hvrand=17873138549297888273&hvtargid=kwd-2061178548210&hydadcr=28399_2397239&keywords=cristianini+la+scorciatoia&mcid=05c2fd31c8ad3daab4a9b381d2113ec5&qid=1753981849&sr=8-1" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
-  </section>
-    <section class="agenda-item">
-      <div class="agenda-content">
-        <h3>L'onda che verrà</h3>
-        <p><em>Mustafa Suleyman, Michael Bhaskar</em></p>
-        <p class="agenda-detail">Uno sguardo a come l'IA e le nuove tecnologie stanno trasformando il futuro.</p>
-      </div>
-      <a class="cart-link icon" href="https://www.amazon.it/Londa-che-verr%C3%A0-Mustafa-Suleyman-ebook/dp/B0CXCYJQRL/ref=sr_1_1?adgrpid=161911767569&dib=eyJ2IjoiMSJ9.UwKU8fdr6yhNqRTfhKHmo3IAvaqepXx96n9tb8Vul9ciiITffFxmNpV7bX9yDCRzF6XXHoim0EwcT6JBq_rGYW1chLhKubSy0-DzBIla0kxiRZCShBRQECC3zxXHrdvTeBiVRl7zA-AYDy7BhP6LOg.O8qmzNH-3FVRldewOpkhwR5HwAL3FRbwgTNWMtI64lU&dib_tag=se&hvadid=710724147533&hvdev=c&hvexpln=0&hvlocphy=9198639&hvnetw=g&hvocijid=10620017132028927798--&hvqmt=e&hvrand=10620017132028927798&hvtargid=kwd-2301754090518&hydadcr=28430_2518840&keywords=l%27onda+che+verr%C3%A0&mcid=ce17461b3b6630bd95c150e3cadb90fc&qid=1753978372&sr=8-1" target="_blank" aria-label="Acquista su Amazon"><i class="fas fa-cart-shopping"></i></a>
+    </section>
+
+    <section id="podcast" class="inner-tab-content">
+      <p class="reading-intro">Prossimamente in arrivo...</p>
     </section>
   </section>
 </main>
@@ -435,6 +507,16 @@
           icon.classList.add('fa-circle-plus');
         }
       }
+    });
+  });
+
+  document.querySelectorAll('#consigli .inner-tab').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var container = btn.closest('#consigli');
+      container.querySelectorAll('.inner-tab').forEach(function(b){ b.classList.remove('active'); });
+      container.querySelectorAll('.inner-tab-content').forEach(function(tc){ tc.classList.remove('active'); });
+      btn.classList.add('active');
+      container.querySelector('#'+btn.dataset.tab).classList.add('active');
     });
   });
 </script>
