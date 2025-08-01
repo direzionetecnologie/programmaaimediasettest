@@ -171,9 +171,6 @@
       display: block;
     }
 
-    #video .agenda-detail {
-      display: block;
-    }
 
     .toggle {
       margin-left: auto;
@@ -517,6 +514,7 @@
           Riflessione profonda: più che spiegazioni tecniche, invita a considerare implicazioni etiche e sociali, alla ricerca di risposte a domande comuni sul ruolo dell’AI nella società.<br>
 Narrativa avvincente: analogie chiare (es. speciazione digitale, AI come compagni) rendono il concetto accessibile anche ai non addetti ai lavori.</p>
         </div>
+        <div class="toggle"><i class="fas fa-circle-plus"></i></div>
       </section>
 
       <section class="agenda-item">
@@ -530,6 +528,7 @@ Narrativa avvincente: analogie chiare (es. speciazione digitale, AI come compagn
 <br>Contesto umano e filosofico: fondamentale per comprendere come l’AI possa influenzare valori, fiducia, lavoro e sistemi socio-culturali.
 <br>Approccio etico e riflessivo: ideale per chi cerca consapevolezza critica, non solo tecnica.</p>
         </div>
+        <div class="toggle"><i class="fas fa-circle-plus"></i></div>
       </section>
 
       <section class="agenda-item">
@@ -544,6 +543,7 @@ Narrativa avvincente: analogie chiare (es. speciazione digitale, AI come compagn
 <br>Ottimo punto di partenza: ideale se vuoi iniziare a esplorare i principi teorici e tecnici dell’AI generativa, senza perdersi in tecnicismi eccessivi.</p>
 
         </div>
+        <div class="toggle"><i class="fas fa-circle-plus"></i></div>
       </section>
 
       <section class="agenda-item">
@@ -558,6 +558,7 @@ Narrativa avvincente: analogie chiare (es. speciazione digitale, AI come compagn
 <br>Tempismo e chiarezza: discute le scoperte recenti e quelle previste nei prossimi anni, con tempi precisi (4–19 anni), dando concretezza agli scenari futuristici jobirun.com.
 <br>Spunti concreti sul rischio AI: utile per chi vuole approfondire il tema del rischio esistenziale, del potere tecnico e della governance dell’AI.</p>
         </div>
+        <div class="toggle"><i class="fas fa-circle-plus"></i></div>
       </section>
 
       <section class="agenda-item">
@@ -571,6 +572,7 @@ Narrativa avvincente: analogie chiare (es. speciazione digitale, AI come compagn
 <br>Focus sul lavoro e società: offre spunti concreti su come cambierà il mercato del lavoro e quali competenze diventeranno fondamentali.
 <br>Contenuto aggiornato e rilevante: intervista pubblicata a giugno 2025, quindi con analisi fresche e basate sugli sviluppi più recenti nel settore</p>
         </div>
+        <div class="toggle"><i class="fas fa-circle-plus"></i></div>
       </section>
 
       <section class="agenda-item">
@@ -584,6 +586,7 @@ Narrativa avvincente: analogie chiare (es. speciazione digitale, AI come compagn
 <br>Prospettive concrete sul futuro: con proiezioni di crescita realistica (produttività +30%), può aiutare a comprendere i veri potenziali — e limiti — dell’AI.
 <br>Invito all’azione: stimola a riflettere su come prepararsi oggi per cogliere le grandi opportunità che giungono con l’AI rivoluzione.</p>
         </div>
+        <div class="toggle"><i class="fas fa-circle-plus"></i></div>
       </section>
     </section>
 
@@ -607,7 +610,7 @@ Narrativa avvincente: analogie chiare (es. speciazione digitale, AI come compagn
     });
   });
 
-  document.querySelectorAll('#agenda .agenda-item').forEach(function(item) {
+  document.querySelectorAll('#agenda .agenda-item, #video .agenda-item').forEach(function(item) {
     item.addEventListener('click', function() {
       item.classList.toggle('open');
       var icon = item.querySelector('.toggle i');
